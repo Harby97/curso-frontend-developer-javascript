@@ -169,6 +169,10 @@ aside {
   position: absolute;
   right: 0;
 }
+
+#shoppingCarContainer{
+  padding: 0 24px;
+}
 .title-container {
   display: flex;
 }
@@ -314,6 +318,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .main-container .product-info {
   display: flex;

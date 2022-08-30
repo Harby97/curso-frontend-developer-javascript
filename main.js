@@ -16,34 +16,31 @@ shoppingCarIcon.addEventListener('click', toggleshoppingCarMenu);
 productDetailClose.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu(){
-    const isShoppingCarOpen = !shoppingCarContainer.classList.contains('inactive');
-
     desktopMenu.classList.toggle('inactive')
-    
-    if(isShoppingCarOpen){
-        shoppingCarContainer.classList.add('inactive')
-    }
+    mobileMenu.classList.add('inactive')
+    shoppingCarContainer.classList.add('inactive')
+    productDetail.classList.add('inactive')
 }
 
 function toggleburgerMenu(){
-    const isShoppingCarOpen = !shoppingCarContainer.classList.contains('inactive');
-
-    mobileMenu.classList.toggle('inactive')
-
-    if(isShoppingCarOpen){
-        shoppingCarContainer.classList.add('inactive')
-    }
+    mobileMenu.classList.toggle('inactive') 
+    desktopMenu.classList.add('inactive')
+    shoppingCarContainer.classList.add('inactive')
+    productDetail.classList.add('inactive')
 }
 
 function toggleshoppingCarMenu(){
-    const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
-    const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
-
     shoppingCarContainer.classList.toggle('inactive')
-    if(isMobileMenuOpen || isDesktopMenuOpen){
-        desktopMenu.classList.add('inactive')
-        mobileMenu.classList.add('inactive')
-    }
+    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
+}
+
+function openProductDetailAside(){
+    productDetail.classList.remove('inactive')
+    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    shoppingCarContainer.classList.add('inactive')
 }
 
 function closeProductDetail(){
@@ -89,6 +86,7 @@ function renderProduct(arr){
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src',product.image)
+        productImg.addEventListener('click', openProductDetailAside)
         
         const productInfo = document.createElement('div')
         productInfo.setAttribute('class', "product-info")
